@@ -3,6 +3,8 @@ services:
         build:
             context: .
             dockerfile: ./docker/common/php-fpm/Dockerfile
+            target: production
+        image: "trahtechindo/obygnbe:latest"
         restart: unless-stopped
         volumes:
             - obygnbe-volume:/var/www/storage
