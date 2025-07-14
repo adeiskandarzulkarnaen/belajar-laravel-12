@@ -1,10 +1,14 @@
 services:
     php-fpm:
+        container_name: obygnbe-container
         build:
             context: .
             dockerfile: ./docker/common/php-fpm/Dockerfile
             target: production
         image: "trahtechindo/obygnbe:latest"
+        network_mode: bridge
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         restart: unless-stopped
         volumes:
             - obygnbe-volume:/var/www/storage
